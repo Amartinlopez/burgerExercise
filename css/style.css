@@ -132,7 +132,7 @@ header nav .menu li a.activo, header nav .menu li a:hover{
 }
 .hero p{
     font-size: 1.15em;
-    color:black;
+    color: white;
 }
 .boton {/* en este caso ponemos solo .boton porque asi afectan tambien estas reglas de estilo al boton de mas adelante */
     background-color: #fa573a;
