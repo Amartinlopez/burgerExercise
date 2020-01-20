@@ -1,0 +1,355 @@
+@import url('reset.css'); 
+@import url('https://fonts.googleapis.com/css?family=Handlee|Montserrat:400,700&display=swap');
+
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Handlee', cursive;
+color rojo: #fa573a
+color azul: #21242e;
+ */
+
+*{
+box-sizing: border-box;
+scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.container-fluid {
+    width: 100%;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+/* row:after porque vamos a usar flotaciones */
+.row:after{
+    clear:both;
+    content:"";
+    height: 0;
+    display: block;
+}
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}/* Es generico darle estas reglas a todas las imagenes, hay que ponerlo en todas las paginas web */
+
+/* INICIO HEADER */
+header .nav_top {
+    background-color: #21242e;
+    color: white;
+    padding: 20px 0;
+ }
+header .nav_top .container div{
+    float: left;
+    width:25%;
+}
+header .nav_top a{
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+}
+header .nav_top a span{
+    display:none;
+}
+header .nav_top a i{
+    color: #fa573a;
+}
+
+header .nav_top .container div:nth-child(3), header .nav_top .container div:last-child {
+    text-align: right;
+}/* Solo se lo decimos a estos dos ultimos porque ya en  header .nav_top .container div hemos flotado todos los elementos a la izda*/
+
+/* INICIO NAV */
+header nav {
+    padding: 20px 3%;
+}
+header .navegador{
+    max-width: 62.5em;
+    margin: 0 auto;
+    padding: 1em 1em;
+}
+header .hamburguesa {
+    cursor: pointer;/* para que salga la manita en la hamburguesa  */
+    float: right;
+}
+header .hamburguesa div {
+    border-top: 2px solid #aaa;
+    width: 1.875em;
+    margin-bottom: 0.625em;/* Como estamos alineando arriba, ponemos el margen abajo */
+}
+header nav .logo{
+    float: left;
+    width: 100px;
+}
+header nav .menu {
+    padding-top: 50px;
+}
+header nav .menu li{
+    padding: 1.25em;
+    text-align: center;
+    border-bottom: 1px solid #aaa
+}
+header nav .menu li:last-child {
+    border: 0px;
+}
+header nav .menu li a{
+    color: #aaa;
+    text-decoration: none;
+    display: block; /* para que todo el botón sea bloque, imp sobretodo en vista movil */
+}
+header nav .menu li a.activo, header nav .menu li a:hover{
+    color: #fa573a;/* header nav .menu li a.activo: se utiliza para sber donde estas de la pagina, en este caso el Item 1 es la home y por eso es el que esta activo. header nav .menu li a:hover: para que cuando pasas por encima se ponga rojo*/
+}
+
+
+/* INICIO HERO */
+.hero{
+    background-image: url(../images/fondo.jpg);
+    height: 37em;
+    background-size: cover;
+    background-position: center center;
+    background-color: #888;
+    background-blend-mode: multiply;/* multiplica el color de fondo que pongas con el color de la imagen */
+}
+.hero>div {
+    color:white;
+    padding: 15% 3%;
+}
+.hero h1{
+    font-size: 2em;
+    font-family: 'Handlee', cursive;
+}
+.hero h2{
+    color: #fa573a;
+    font-size: 1.5em;
+    margin: 1em 0;/* en vez de poner margen a todos los elementos, le pongo margen arriba y abajo a h2 y al boton de nuestra carta */
+}
+.hero p{
+    font-size: 1.15em;
+    color:black;
+}
+.boton {/* en este caso ponemos solo .boton porque asi afectan tambien estas reglas de estilo al boton de mas adelante */
+    background-color: #fa573a;
+    display: inline-block;
+    padding: 1.15em;
+    color: white;
+    text-decoration: none;
+    margin: 1em 0;
+    border: 1px solid #fa573a;
+}
+.boton:hover {
+    background-color: transparent;
+    color: #fa573a;
+}
+.boton:hover i{
+    transform: translateX(5px);
+    transition: transform 1s;
+}
+.hero .social li{
+    display: inline-block;
+    font-size: 2em;
+    margin-right: 1em;
+}
+.hero .social li a{
+    color:white;
+    text-decoration: none;
+}
+
+/* MAIN */
+/* Primera seccion */
+main section.container{
+    padding-top: 3.125em;
+    padding-bottom: 3.125em;
+}
+main section h2{
+    color:black;
+    font-family: 'Handlee', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+main section h2 span {
+    color: #fa573a;
+}
+main section .underline {
+    position: relative;
+    width: 100px;
+    margin: 0 auto;
+}
+main section .underline hr {
+    border-color: #fa573a;
+    position: absolute;/* al poner position absolute se sale del contenedor, por lo que hay que ponerle un width */
+    width: 100%;
+}
+main section .underline span {
+    display: block;
+    text-align: center;
+    color: #fa573a;
+    font-weight: bold;
+}
+main section .flex {
+    display: flex;
+    flex-wrap: wrap;/* para poder elegir el tamaño de dispositivo */
+
+}
+main section .flex article {
+    width: 100%;
+    padding: 1.825em ;
+    border-bottom: 1px solid #aaa;
+}
+main section .flex article:last-child {
+    border-bottom: 0px;
+}
+main section .flex article div i {
+    color:#fa573a;
+    font-size: 2em;
+    border: 2px solid #fa573a;
+    padding: .5rem;/* ponemos rem porque em hereda del padre, por lo tanto se multiplicaria por los 2 em del font-size. de esta manera hereda directamente de la fuente */
+}
+main section .flex article div .fa-truck{
+    transform: rotateY(180deg);
+
+}
+main section .flex article h3 {
+    font-weight: 700;
+    margin:1em 0;
+}
+main section .enlace {
+    font-weight: 700;
+    color: #fa573a;
+    text-decoration: none;
+    margin-top: 1em;
+    display:block;/* para poder clickar como si fuera un boton y no solo en las letras */
+}
+main section .enlace:hover i{
+    margin-left: 10px;
+    /* transform: translateX(10px); otra forma de hacerlo*/
+    transition: 1s;
+}
+
+/* Segunda seccion */
+main section .flex .columna {
+    width: 100%;
+    padding: 1.25em 0;
+}
+main section .flex .imagen {
+    width:85%;
+    margin: 0 auto;
+  
+}
+main section .flex .imagen .marco {
+    border: 3px solid #fa573a;
+    background-color: transparent;
+    transform: rotateZ(10deg);
+    transition: 1s;
+}
+main section .flex .imagen .marco img {
+    transform: rotateZ(-10deg);
+    transition: 1s;
+}
+main section .flex .imagen:hover .marco, main section .flex .imagen:hover img{
+    transform: rotateZ(0deg);
+}
+main section .flex .columna h3 {
+    font-weight: 700;
+}
+main section .flex .columna h4 {
+    margin: 0.5em 0;
+    color: #fa573a;
+}
+p {
+    color: rgb(82, 78, 78);
+}
+main section .flex .columna div {
+    margin-top: 0.5em;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: #21242e;
+    color: white;
+    padding: 20px 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    
+}
+footer p{
+    color:white;
+    font-size: 1em;
+}
+
+/* MEDIA QUERIS */
+/* Hasta 426px se ve bien asi que pasamos al siguiente punto media queris. */
+@media(min-width: 48.063em)
+{
+    header .nav_top a span{
+        display: inline;
+        font-size: 0.6em;
+    }
+    main section .flex article {
+        width: 50%;
+        padding: 1.825em 1em;
+        border-bottom: 0px;
+        border-left: 1px solid #aaa;
+        margin-bottom: 1em;   
+    }
+    main section .underline {
+        margin-bottom: 2em;
+    }
+    main section .flex article:last-child{
+        width:100%;
+    }
+    header .hamburguesa {
+        float: none;
+        display: none;
+    }
+    header nav .menu {
+        padding-top: 0px;
+        float: right;
+    }
+    header nav .menu li{
+        display: inline-block;
+        padding: 0.5em 0.8em;
+        text-align: left;
+        border-bottom: 0px;
+    }
+    header nav .menu li:last-child{
+        padding-right:0;
+    }
+}
+@media(min-width: 62.75em){
+
+    main section .flex .columna{
+        width:50%;
+        padding: 1.25em 1em;
+    }
+
+}
+@media(min-width: 75.0625em){
+    main section .flex article {
+        width: 33.33%;
+        padding: 1.825em 1em;
+        border-bottom: 0px;
+        border-left: 1px solid #aaa;
+        margin-bottom: 1em;
+    }
+    main section .flex article:last-child{
+        width:33.33%;
+    }
+    .hero>div{
+        color:white;
+        padding: 7% 3%;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
